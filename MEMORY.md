@@ -31,6 +31,7 @@
 ## Reference
 - **re_workflow_levels.md** — RE tool setup: IDA 8.3 (FLIRT 347 sigs + RTTI built-in + MCP) + Frida
 - **window_monitor_tool.md** — Window Monitor: DWM live preview nhieu cua so game PC
+- **reference_github_backup.md** — Memory backup: github.com/mjnhhjen9x-source/claude-memory (PRIVATE)
 
 ## User Preferences
 - Ngon ngu giao tiep: Tieng Viet
