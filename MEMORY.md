@@ -16,6 +16,8 @@
 - Khi user nhac den "VNKU" → doc vnku_project.md truoc
 - **icarus_project.md** — Ky Nguyen Icarus: MU Online engine port, SDL3, ARM32, IDA analysis started
 - Khi user nhac den "Icarus", "Ky Nguyen" → doc icarus_project.md truoc
+- **gunbound_project.md** — Gunbound Legend PC: Cocos2d, XIGNCODE anti-cheat, AI FireSimulation for aimbot
+- Khi user nhac den "Gunbound", "GunboundM" → doc gunbound_project.md truoc
 - **vl_multi_project.md** — VL Multi-Instance: deep RE of VietGuards auth/HWID/kick
 - Khi user nhac den "VL", "VietGuards", "multi instance" → doc vl_multi_project.md truoc
 
