@@ -10,6 +10,7 @@
 - [jx1_mobi_project.md](jx1_mobi_project.md) — JX1 Mobile: Unity IL2CPP, 202K methods, blocked (can dien thoai root)
 - [m4vn_project.md](m4vn_project.md) — M4VN MU Online: PhoenixCheat bypass OK, UPX timing, san sang bot
 - [m4vn_progress.md](m4vn_progress.md) — M4VN: full auto bot multi-instance (login + tanthu + sell + delete + UI + exe)
+- [vttt_project.md](vttt_project.md) — VTTT (MU Vu Tru Than Thoai): bypass CMPlay AC OK (kill function patch), opcode capture in progress
 
 ## Feedback & Rules
 - [bot_code_standards.md](bot_code_standards.md) — Kien truc 5 tang, state machine, logging, error handling
