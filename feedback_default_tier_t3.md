@@ -85,3 +85,36 @@ Neu KHONG co keyword tren, MAC DINH T3.
 - `feedback_hard_game_red_flags.md` - red flag check truoc khi RE
 - `re_workflow_optimized.md` - quy trinh RE tong quat
 - `bot_code_standards.md` - code standards cho bot
+
+## CRITICAL CLARIFICATION (2026-04-21)
+
+**Tier = "cong nghe gi DUNG TRONG tool", KHONG phai "muc do automation"**
+
+Tool tier nao cung **van hanh 100% tu dong**. Tier chi tra loi:
+**ben trong tool dung ky thuat gi de can thiep game?**
+
+Common confusion (AI session truoc da nham):
+- ❌ "T3.5 = nhieu human-in-loop hon T4" — SAI
+- ❌ "T4 = scale 100 bot" — SAI (scale la T5)
+- ❌ "T3 -> T4 chu yeu la infrastructure" — SAI (la deeper hook tech)
+
+Phan biet KEY giua T3 / T4 / T5:
+- **T3 vs T4** = packet inject qua libc (replicate logic) VS Frida hook function thuc
+  - T3: doc memory + tu encrypt + goi libc send() (VNKU/M4VN pattern)
+  - T4: `Interceptor.attach()` lay control khi game goi function
+- **T3 vs T5** = co/khong game UI
+  - T3: game UI van chay, bot can thiep song song
+  - T5: khong game, Python tu handshake + login + farm (headless_v9 pattern)
+- **T4 vs T6** = user-mode vs kernel-mode bypass
+  - T4: user-mode, can phone root vi Houdini chan ARM hook tren emulator
+  - T6: kernel driver / DSE bypass / zero-day kernel exploit
+
+## Toolset hien tai (2026-04-21 status)
+
+| Tier | Status | Note |
+|------|--------|------|
+| T1-T2 | Available, not used | T3 du roi, khong xai T1-T2 |
+| **T3** | ✅ MATURE | M4VN bot_ui.py + bypass_v5.js + frida-mcp. Default tier. |
+| T4 | ❌ NOT YET | Can phone Android root + Frida hook ARM tu do |
+| T5 | 🟡 PATTERN ONLY | M4VN headless_v9 da xoa, mu_crypto/mu_decrypt phai rebuild khi can. Pattern lưu tai m4vn_progress.md |
+| T6 | ❌ NOT WORTH | Skip — rui ro cao, ROI thap, can budget triệu USD cho zero-day |
