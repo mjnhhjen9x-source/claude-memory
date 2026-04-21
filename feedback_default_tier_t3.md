@@ -12,19 +12,31 @@ Chi nang len T4 hoac T5 khi user EXPLICITLY goi ten.
 **Why:** User da quyet dinh sau nhieu thao luan (Apr 2026). User co concerns
 cu the voi cac tier khac va T3 fit nhu cau.
 
-## Tier definitions (da thong nhat voi user)
+## Tier definitions (CHUAN, da thong nhat voi user 2026-04-21)
+
+**Framework chi co T1-T4. T5/T6 KHONG dung (xoa khoi vocabulary).**
 
 ```
 T1 - Ga:        Pixel read + PostMessage/ADB tap (khong game data)
-T2 - Kha:       Read-only memory / packet capture
-T3 - Manh:      R/W state qua memory write hoac packet inject
-                (GAME UI VAN HIEN - user thay duoc bot lam gi)
-T4 - Cao thu:   Frida Interceptor.attach ARM function hook
-                (thuong can ARM phone root vi emulator houdini chan)
-T5 - Pro:       Fully custom Python client (headless, khong can game UI)
-                (scale 100+ account tren PC)
-T6 - God:       Internal cheat, DLL inject, bypass all AC
+                Game UI: CO. Khong dung game internal data.
+
+T2 - Kha:       Read-only memory + packet capture (sniff thu dong)
+                Game UI: CO. Doc data nhung khong can thiep.
+
+T3 - Manh:      R/W memory + packet inject qua Frida + libc send()
+                Game UI: CO (debug duoc, thay bot lam gi)
+                Vi du: M4VN bot_ui.py, VNKU auto_train
+
+T4 - Cao thu:   HEADLESS CLIENT (custom Python TCP client)
+                Game UI: KHONG (chay 100% bang code)
+                Phai RE protocol + crypto + replicate handshake
+                Vi du: M4VN headless_v9.py
 ```
+
+Framework **ap dung chung cho mobile va PC**:
+- Mobile T4 = Python TCP + crypto giả lập client (không cần emulator/phone)
+- PC T4 = Python TCP + crypto giả lập client (không cần Main.exe)
+- Giong nhau ve tech, khac nhau ve protocol game cu the
 
 ## User preferences for T3 (why it fits)
 
@@ -44,40 +56,40 @@ T6 - God:       Internal cheat, DLL inject, bypass all AC
 
 ### Khi user noi "lam bot cho game X"
 1. Mac dinh plan T3 workflow:
-   - LDPlayer/emulator chay game
+   - Game (PC) hoac emulator (mobile) chay
    - Frida attach (read memory + inject packet qua libc send)
    - Python scripts control bot
-   - Multi-script pattern (1 script per task)
-2. KHONG auto de xuat T5 / custom client
-3. KHONG auto de xuat phone that + Frida hook ARM
+   - User thay duoc game UI, debug de
+2. KHONG auto de xuat T4 / headless client (rebuild cost cao)
 
-### Khi user noi "T4" hoac "T5" explicit
+### Khi user noi "T4" hoac "headless" explicit
 - Chi khi do moi chuyen tier
-- Neu ho hoi ve option khac, giai thich nhung KHONG chuyen mac dinh
+- Headless = phai RE full protocol + crypto + handshake (cost cao gap 3-5 lan T3)
+- Loi the: scale lon (100+ acc), khong can game UI, deploy VPS dễ
 
-### Pattern nhan biet khi can len T4/T5
+### Pattern nhan biet khi can len T4 (headless)
 User se noi tu khoa nhu:
-- "multi-account 10+", "scale", "24/7 farm production"
-- "headless", "khong can UI"
-- "function hook", "intercept game function"
-- "phone that", "root phone"
-- "T4" hoac "T5" truc tiep
+- "headless", "khong can UI", "khong mo game"
+- "scale 50+ bot", "100 acc"
+- "VPS deploy", "chay nen tren server"
+- "T4" truc tiep
 
 Neu KHONG co keyword tren, MAC DINH T3.
 
 ## Example response templates
 
 ### User: "Lam bot auto farm cho game X"
-✅ Dung: "OK, dung T3 pattern: LDPlayer + Frida memory read + packet inject,
-         script auto_train kieu VNKU. Ban van xem duoc game UI."
+✅ Dung: "OK, dung T3 pattern: Frida hook + packet inject, van thay game UI.
+         Pattern bot_ui.py M4VN."
 
-❌ Sai: "Co 2 option: T3 voi emulator, hoac T5 custom client Python..."
+❌ Sai: "Co 2 option: T3 voi emulator, hoac T4 headless..."
 
-### User: "Muon scale 50 bot cho game X"
-✅ Dung: "Scale 50 bot can T5. Chuyen sang T5 plan: custom Python client..."
+### User: "Muon scale 50 bot khong can mo game"
+✅ Dung: "Scale + headless = T4. Phai RE full protocol + crypto. Cost 1-2 tuan
+         build. Pattern m4vn_progress.md headless_v9 (da xoa, can rebuild)."
 
-### User: "Hook function login cua game"
-✅ Dung: "Hook function = T4. Can ARM phone that root vi LDPlayer houdini chan..."
+### User: "Khong muon thay game UI, chay nen"
+✅ Dung: "T4 headless. Phai RE full protocol truoc..."
 
 ## Related memories
 
@@ -86,35 +98,45 @@ Neu KHONG co keyword tren, MAC DINH T3.
 - `re_workflow_optimized.md` - quy trinh RE tong quat
 - `bot_code_standards.md` - code standards cho bot
 
-## CRITICAL CLARIFICATION (2026-04-21)
+## CRITICAL CLARIFICATION (2026-04-21, FINAL)
 
 **Tier = "cong nghe gi DUNG TRONG tool", KHONG phai "muc do automation"**
 
 Tool tier nao cung **van hanh 100% tu dong**. Tier chi tra loi:
 **ben trong tool dung ky thuat gi de can thiep game?**
 
-Common confusion (AI session truoc da nham):
-- ❌ "T3.5 = nhieu human-in-loop hon T4" — SAI
-- ❌ "T4 = scale 100 bot" — SAI (scale la T5)
-- ❌ "T3 -> T4 chu yeu la infrastructure" — SAI (la deeper hook tech)
+**Framework chi co T1-T4. KHONG dung T5/T6.**
+Cac concept "kernel cheat", "zero-day", "internal cheat" = **out of scope**,
+khong thuoc framework cua user. Khi noi den toi user, treat as "skip".
 
-Phan biet KEY giua T3 / T4 / T5:
-- **T3 vs T4** = packet inject qua libc (replicate logic) VS Frida hook function thuc
-  - T3: doc memory + tu encrypt + goi libc send() (VNKU/M4VN pattern)
-  - T4: `Interceptor.attach()` lay control khi game goi function
-- **T3 vs T5** = co/khong game UI
-  - T3: game UI van chay, bot can thiep song song
-  - T5: khong game, Python tu handshake + login + farm (headless_v9 pattern)
-- **T4 vs T6** = user-mode vs kernel-mode bypass
-  - T4: user-mode, can phone root vi Houdini chan ARM hook tren emulator
-  - T6: kernel driver / DSE bypass / zero-day kernel exploit
+Phan biet KEY:
+- **T1 vs T2** = co dung game internal data hay khong (T1 chi pixel/click ngoai)
+- **T2 vs T3** = read-only vs read+write (T3 inject packet, T2 chi sniff)
+- **T3 vs T4** = co/khong game UI
+  - T3: game UI van chay, bot can thiep song song qua Frida + libc send()
+  - T4: KHONG game, Python tu handshake + login + farm (headless client)
 
 ## Toolset hien tai (2026-04-21 status)
 
 | Tier | Status | Note |
 |------|--------|------|
-| T1-T2 | Available, not used | T3 du roi, khong xai T1-T2 |
+| T1-T2 | Available, not used | T3 du roi |
 | **T3** | ✅ MATURE | M4VN bot_ui.py + bypass_v5.js + frida-mcp. Default tier. |
-| T4 | ❌ NOT YET | Can phone Android root + Frida hook ARM tu do |
-| T5 | 🟡 PATTERN ONLY | M4VN headless_v9 da xoa, mu_crypto/mu_decrypt phai rebuild khi can. Pattern lưu tai m4vn_progress.md |
-| T6 | ❌ NOT WORTH | Skip — rui ro cao, ROI thap, can budget triệu USD cho zero-day |
+| T4 | 🟡 PATTERN ONLY | M4VN headless_v9 da xoa, mu_crypto/mu_decrypt phai rebuild khi can. Pattern lưu tai m4vn_progress.md. Cost: 1-2 tuan rebuild voi game co protocol da known. |
+
+## Headless client = ten technical cua T4
+
+T4 trong framework user = **headless client** (custom TCP client, replicate
+game protocol). Cac ten goi khac (community):
+- "Custom client", "protocol emulation bot"
+- "Network bot / TCP bot"
+- "Self-bot" (1 acc) hoac "botnet" (nhieu acc)
+- "WPE bot" (cu, ~2000s)
+- "Reverse-engineered client"
+
+Workflow build T4:
+1. RE network protocol (sniff + decrypt)
+2. Implement crypto layer (mu_crypto / aes / xor / custom)
+3. Replicate handshake flow (CS -> GS -> login -> in-game)
+4. Build action senders (sell/buy/move/attack/quest)
+5. Optional: parse server packets (HP/wcoin/state)
