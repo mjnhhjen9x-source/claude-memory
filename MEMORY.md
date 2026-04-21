@@ -10,6 +10,7 @@
 - [jx1_mobi_project.md](jx1_mobi_project.md) — JX1 Mobile: Unity IL2CPP, 202K methods, blocked (can dien thoai root)
 - [m4vn_project.md](m4vn_project.md) — M4VN MU Online: PhoenixCheat bypass OK, UPX timing, san sang bot
 - [m4vn_progress.md](m4vn_progress.md) — M4VN: full auto bot multi-instance (login + tanthu + sell + delete + UI + exe)
+- [m4vn_server_ids.md](m4vn_server_ids.md) — M4VN server ID: Sub-1=0, Sub-2=1, Sub-19=4 (khong phai so UI)
 - [vttt_project.md](vttt_project.md) — VTTT (MU Vu Tru Than Thoai): bypass CMPlay AC OK (kill function patch), opcode capture in progress
 
 ## Feedback & Rules
@@ -24,6 +25,7 @@
 - [feedback_hard_game_red_flags.md](feedback_hard_game_red_flags.md) — 5 red flag check truoc khi RE game (NeAC, Cocos 3.x V8, houdini, packed .so)
 - [feedback_default_tier_t3.md](feedback_default_tier_t3.md) — MAC DINH tier T3 (game UI + memory + packet inject), chi T4/T5 khi user explicit
 - [feedback_language_style.md](feedback_language_style.md) — Viet thuan tieng Viet, khong chen tu tieng Anh giua cau (tru thuat ngu ky thuat)
+- [feedback_ui_design.md](feedback_ui_design.md) — UI Tkinter: fixed size, grid 4 cot aligned, tab Notebook, auto-save
 
 ## Techniques & Reference
 - [re_workflow_optimized.md](re_workflow_optimized.md) — Quy trinh: danh gia → hack → bot, tool mapping
@@ -32,12 +34,24 @@
 - [re_workflow_levels.md](re_workflow_levels.md) — IDA 8.3 FLIRT + RTTI + MCP setup
 - [feedback_adobe_air_re_workflow.md](feedback_adobe_air_re_workflow.md) — Adobe AIR mobile RE: libair.so custom check, SWF crack, JPEXS AS3 decompile
 - [window_monitor_tool.md](window_monitor_tool.md) — WindowMonitor: DWM preview
+- [frida-mcp-setup](../../.claude/skills/frida-mcp-setup/SKILL.md) — Frida MCP: install, config, device connection, troubleshooting
+- [frida-mcp-usage](../../.claude/skills/frida-mcp-usage/SKILL.md) — Frida MCP: tool selection (eval_js vs load_script vs run_recipe), recipe library
 - [reference_github_backup.md](reference_github_backup.md) — Memory backup: github (PRIVATE)
+- [reference_frida_mcp_backup.md](reference_frida_mcp_backup.md) — frida-mcp backup: github mjnhhjen9x-source/frida-mcp (PRIVATE)
 - [technique_upx_bypass.md](technique_upx_bypass.md) — UPX packed + server hash: doi giai nen xong moi patch
 - [technique_scene_state_bot.md](technique_scene_state_bot.md) — Scene-based game: set state vars thay vi call function truc tiep
 - [technique_packet_capture_caller.md](technique_packet_capture_caller.md) — Tim function tu packet send + caller RVA
 - [technique_multi_instance_bot.md](technique_multi_instance_bot.md) — Multi-account: worker-per-account, spawn stagger, per-session Frida
 - [feedback_frida_hook_upx_timing.md](feedback_frida_hook_upx_timing.md) — Interceptor attach SAU UPX decompress (truoc bi overwrite silent fail)
+- [technique_opengl_vram_optimize.md](technique_opengl_vram_optimize.md) — VRAM toi uu game OpenGL: noop glTexImage2D + glDeleteTextures tu render thread (wglSwapBuffers)
+- [technique_threading_local_crypto.md](technique_threading_local_crypto.md) — Crypto state (counter/nonce) phai threading.local() khi multi-account 1 process
+- [technique_pyinstaller_frozen_path.md](technique_pyinstaller_frozen_path.md) — PyInstaller --onefile: dung sys.executable khong dung __file__ cho config persist
+- [technique_semaphore_rate_limit.md](technique_semaphore_rate_limit.md) — Server chan multi-conn → Semaphore rate-limit, khong bypass
+- [technique_drain_vs_retry.md](technique_drain_vs_retry.md) — Verify action success bang total response bytes trong time window, khong retry spam
+- [technique_bitpack_byteorder.md](technique_bitpack_byteorder.md) — Custom cipher bit-packed: tach 8-bit bytes roi ghep LE, khong doc full value
+- [technique_mu_template_reuse.md](technique_mu_template_reuse.md) — MU login: reverse KEY32 chain 1 lan, extract session_enc36, reuse N account
+- [technique_game_update_offset_patch.md](technique_game_update_offset_patch.md) — Game update: regions dời khác nhau (game code/anti-cheat/data globals), scan bằng wildcard pattern cho imm32
+- [technique_upx_memory_dump_ida.md](technique_upx_memory_dump_ida.md) — Dump UPX binary qua Frida + fix PE header (UPX0 RAW_SZ=VSZ) cho IDA analyze
 
 ## Trigger Rules
 - "MU", "MU Xua" → doc mu_xua_project.md
@@ -51,6 +65,7 @@
 - Bat dau du an moi → doc re_workflow_optimized.md + bot_code_standards.md
 - "M4VN" → doc m4vn_project.md
 - Game UPX packed + server hash check → doc technique_upx_bypass.md
+- "frida-mcp", "frida mcp" → doc frida-mcp-usage skill, check frida-mcp-setup if issues
 
 ## User Preferences
 - Giao tiep: Tieng Viet | Code: Python + Frida JS
