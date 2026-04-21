@@ -16,6 +16,9 @@ originSessionId: 8be1cda3-5aab-4ab4-89fc-97600b06a50a
 - **Khong code** — khong biet Python, JavaScript, hay language nao (do tu nguoi cu lo phan code)
 - AI thay the role coder cu — nay user co the execute vision ma truoc khong tu lam duoc
 - **Tat ca code Python/JS/Frida/IDA trong workspace nay deu do AI viet**, user chi describe yeu cau
+- **Da dung AI ~3 thang** (tinh den 2026-04) -> biet ro gioi han model
+- Team cu chi lam **T1-T2 tools** (anti-cheat khong cang); voi AI nay user da level len T3
+- **Workflow "khong on la dung"** — khong co dam, pivot/stop nhanh khi feature/game fail
 
 ## Strengths (RE intuition rat tot)
 - Biet chinh xac **what** can lam (vision/direction)
