@@ -20,6 +20,18 @@ originSessionId: 8be1cda3-5aab-4ab4-89fc-97600b06a50a
 - Team cu chi lam **T1-T2 tools** (anti-cheat khong cang); voi AI nay user da level len T3
 - **Workflow "khong on la dung"** — khong co dam, pivot/stop nhanh khi feature/game fail
 
+## Role split (rat quan trong cho session sau)
+- **User:** game scout + y tuong kiem tien + domain knowledge + business judgment
+  - Tim game co economy ngon, AC bypass duoc, server lifecycle du dai
+  - Doan game **"an ngan han"** (server lifecycle ngan): vao truoc, ra truoc — game profile chu yeu
+  - Hieu market: gia wcoin/item, where to sell
+  - Risk management: khi nao dung de tranh chet acc
+- **AI:** code execution + technical infrastructure + iteration
+  - Build bypass, hook, bot logic, UI tools, exe packaging
+  - RE protocol, find offset, debug runtime
+  - Backup/memory/git workflow
+- **AI khong scout game ho user** — chi build khi user da chon game va co plan
+
 ## Strengths (RE intuition rat tot)
 - Biet chinh xac **what** can lam (vision/direction)
 - Mo ta trieu chung dung dan (e.g., "select sub > khong vao login", "doi IP van bi")
