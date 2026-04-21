@@ -52,6 +52,7 @@
 - [technique_mu_template_reuse.md](technique_mu_template_reuse.md) — MU login: reverse KEY32 chain 1 lan, extract session_enc36, reuse N account
 - [technique_game_update_offset_patch.md](technique_game_update_offset_patch.md) — Game update: regions dời khác nhau (game code/anti-cheat/data globals), scan bằng wildcard pattern cho imm32
 - [technique_upx_memory_dump_ida.md](technique_upx_memory_dump_ida.md) — Dump UPX binary qua Frida + fix PE header (UPX0 RAW_SZ=VSZ) cho IDA analyze
+- [technique_socks5_antiproxy_bypass.md](technique_socks5_antiproxy_bypass.md) — Multi-layer IP ban + client anti-proxy: SOCKS5 tunnel + getpeername spoof
 
 ## Trigger Rules
 - "MU", "MU Xua" → doc mu_xua_project.md

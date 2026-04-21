@@ -93,3 +93,13 @@ originSessionId: 05a683ce-7fc5-430d-b086-61b4424e86f8
 - Auto farm (danh quai + nhat do + sell NPC loop)
 - Auto potion (uong thuoc khi HP thap)
 - Multi-account support
+
+## 2026-04-21: IP BAN + ANTI-PROXY BYPASS
+Server ban IP + client check getpeername. Fix 2 tang trong bypass_v5.js:
+1. SOCKS5 hook on `ws2_32!connect` -> redirect to proxy `42.96.3.54:50793`
+2. `getpeername` spoof -> return real GAME_SERVER_IP (14.225.209.79)
+
+PROXY_CFG o dau bypass_v5.js, enabled=true. Khi can change proxy hoac off,
+edit truc tiep. `bot_ui.py` + `bot_loop.js` dung chung bypass_v5 -> auto route qua proxy.
+
+Xem chi tiet technique: `technique_socks5_antiproxy_bypass.md`
