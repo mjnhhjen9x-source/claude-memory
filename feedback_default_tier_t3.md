@@ -140,3 +140,20 @@ Workflow build T4:
 3. Replicate handshake flow (CS -> GS -> login -> in-game)
 4. Build action senders (sell/buy/move/attack/quest)
 5. Optional: parse server packets (HP/wcoin/state)
+
+## T4 Trade-off QUAN TRONG
+
+**T4 KHONG luon manh hon T3 ve scale.** M4VN da chung minh:
+- T4 (headless) bi server **per-IP rate limit** kick sau 3-5 acc
+- T3 (bot_ui.py + Frida) khong bi vi game spawn cham (~10s/acc) tu nhien stagger
+
+T4 chi thang T3 khi co them:
+- Proxy pool (1 conn / proxy)
+- VPS pool (1-2 headless / VPS)
+- Stagger logic phuc tap
+
+Khong co cac thu do, T3 nhieu khi scale TOT HON T4. Vi du M4VN: T3 chay
+20+ acc cung 1 may OK, T4 chi 3-5 acc roi bi rate limit.
+
+**Quy tac:** truoc khi de nghi T4, hoi: server co per-IP rate limit khong?
+Neu co va user khong co proxy pool -> dung T3.

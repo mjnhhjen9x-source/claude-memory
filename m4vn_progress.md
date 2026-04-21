@@ -411,9 +411,31 @@ def get_char_names_from_charlist(wire_resp):
   - reason=1 logout, reason=2 post-enter "ready" signal
 
 ### Files:
-- `headless_v9.py` - Full bot pipeline WORKING
-- `mu_decrypt.py` - FIXED, decrypt charlist to find char name
-- `mu_crypto.py` - encrypt (unchanged, verified byte-perfect)
+- `headless_v9.py` - Full bot pipeline WORKING (DA XOA Apr 2026, ly do duoi)
+- `mu_decrypt.py` - FIXED, decrypt charlist to find char name (DA XOA)
+- `mu_crypto.py` - encrypt (unchanged, verified byte-perfect) (DA XOA)
+
+### LY DO XOA HEADLESS (2026-04, IMPORTANT)
+**Server M4VN co per-IP connection rate limit.** Headless Python connect burst
+nhanh -> server reject sau 3-5 acc cung 1 IP. Bot tool T3 (bot_ui.py + Frida)
+spawn game cham (~10s/acc) nen tu nhien stagger -> khong trip limit.
+
+So sanh:
+| | Headless (T4) | Bot tool (T3) |
+|---|---------------|---------------|
+| Connection rate | Burst nhanh (Python sockets) | Slow (game spawn ~10s/acc) |
+| Server fingerprint | TCP from Python (suspicious) | TCP from Game.exe (legit) |
+| Connection lifecycle | Short, immediate | Long, mimics player |
+| Rate limit hit | Sau 3-5 acc | Khong bao gio neu stagger |
+
+User chon T3 (bot tool) la dung quyet dinh: scale TOT hon T4 ma khong can
+proxy pool / VPS pool / stagger logic phuc tap.
+
+Workaround neu muon dung headless lai:
+1. Proxy pool (1 connection / proxy IP)
+2. Stagger 30-60s giua moi login
+3. VPS pool (1-2 headless / VPS)
+Cost cao hon T3 + bot_ui.py rat nhieu -> khong worth (cho M4VN).
 
 ### KEY INSIGHT:
 XOR obfuscation pattern: constants XORed to hide op bytes from casual packet sniffer:
