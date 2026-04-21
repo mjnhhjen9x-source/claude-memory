@@ -103,3 +103,28 @@ PROXY_CFG o dau bypass_v5.js, enabled=true. Khi can change proxy hoac off,
 edit truc tiep. `bot_ui.py` + `bot_loop.js` dung chung bypass_v5 -> auto route qua proxy.
 
 Xem chi tiet technique: `technique_socks5_antiproxy_bypass.md`
+
+## 2026-04-21: Proxy Tab trong bot_ui.py
+bot_ui.py da co tab Proxy (giua Bot va Log) cho phep:
+- Paste list SOCKS5 proxy (format `host:port:user:pass:SOCKS5`, `:SOCKS5` optional)
+- Chon 1 proxy active hoac Direct (combobox readonly)
+- Save button: parse + persist vao bot_config.json + rebuild dropdown
+- Test button: CS handshake 8s qua proxy duoc chon, status `OK (NB list)` / `FAIL: <reason>`
+- Comment lines (#) + empty lines duoc skip; warning duoc log
+
+Khi `_spawn_game` chay, `self.ui.apply_proxy_config(src)` se regex-substitute
+`var PROXY_CFG = {...};` trong bypass_v5.js source bang config user chon.
+Direct = `enabled: false` (no SOCKS5 redirect).
+
+Spec: `D:/Code Tools/PC_GAMES/M4VN/docs/specs/2026-04-21-proxy-tab-design.md`
+Plan: `D:/Code Tools/PC_GAMES/M4VN/docs/plans/2026-04-21-proxy-tab.md`
+Tests: `tests/test_proxy_parse.py` (14 tests, run `pytest tests/ -v`)
+
+Module-level functions in bot_ui.py:
+- `parse_proxy_list(raw)` -> (entries, warnings)
+- `apply_proxy_config_to_source(source, active_key)` -> modified source
+- `_PROXY_CFG_RE` for regex substitution
+
+Config schema (bot_config.json) them 2 keys:
+- `proxies`: raw textarea string (preserve formatting + comments)
+- `active_proxy`: full key `host:port:user:pass` or empty for Direct
