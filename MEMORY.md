@@ -1,5 +1,8 @@
 # User Memory
 
+## About User
+- [user_role.md](user_role.md) — Non-coder game farmer; AI viet code, user direct vision
+
 ## Projects
 - [mu_xua_project.md](mu_xua_project.md) — MU Xua 2003: Frida bot, auto-login, multi-account
 - [mu_login_lessons.md](mu_login_lessons.md) — MU PC login: packet order, gs=2 rule
