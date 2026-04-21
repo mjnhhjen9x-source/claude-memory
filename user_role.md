@@ -7,8 +7,14 @@ originSessionId: 8be1cda3-5aab-4ab4-89fc-97600b06a50a
 # User Profile
 
 ## Background
-- **Khong code** — khong biet Python, JavaScript, hay bat ky language nao
-- **Game farmer** — chuyen lam bot game de farm wcoin/items/currency
+- **Game farmer 5-6 nam** (chuyen nghiep, kiem du song; game ngon thi kha)
+- **YouTube channel: "Thanh Cay Thue"** (public identity)
+- **Truoc co team:** user lead phan cung/may moc/setup, co 1 nguoi viet tools
+- **Hieu sau ve cac level cua tools** (T1->T5 framework) qua nhieu nam noi chuyen
+  voi coder cu — biet gioi han tung tier, biet khi nao escalate
+- **IT background phan cung** (hardware) — hieu CPU/memory/register concepts -> RE intuition tot
+- **Khong code** — khong biet Python, JavaScript, hay language nao (do tu nguoi cu lo phan code)
+- AI thay the role coder cu — nay user co the execute vision ma truoc khong tu lam duoc
 - **Tat ca code Python/JS/Frida/IDA trong workspace nay deu do AI viet**, user chi describe yeu cau
 
 ## Strengths (RE intuition rat tot)
