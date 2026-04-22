@@ -16,7 +16,8 @@
 - [m4vn_server_ids.md](m4vn_server_ids.md) — M4VN server ID: Sub-1=0, Sub-2=1, Sub-19=4 (khong phai so UI)
 - [vttt_project.md](vttt_project.md) — VTTT (MU Vu Tru Than Thoai): bypass CMPlay AC OK (kill function patch), opcode capture in progress
 - [thanhlong_project.md](thanhlong_project.md) — ThanhLong (Unity IL2CPP MMO VN): scouted 9/10 green, HOLD — game testing phase
-- [rejected_games.md](rejected_games.md) — Games scouted & rejected (CABAL Mobile XIGNCODE3, JX1 blocked)
+- [cabal_mobile_project.md](cabal_mobile_project.md) — CABAL Online Mobile SEA: ACTIVE, XIGNCODE3 bypass + custom Lua engine (3-5 weeks)
+- [rejected_games.md](rejected_games.md) — Games scouted & rejected (JX1 blocked; CABAL reactivated)
 
 ## Feedback & Rules
 - [bot_code_standards.md](bot_code_standards.md) — Kien truc 5 tang, state machine, logging, error handling
@@ -71,6 +72,7 @@
 - Bat dau du an moi → doc re_workflow_optimized.md + bot_code_standards.md
 - "M4VN" → doc m4vn_project.md
 - "ThanhLong", "Thanh Long" → doc thanhlong_project.md (currently HOLD)
+- "CABAL", "cabal mobile", "CMSEA" → doc cabal_mobile_project.md (ACTIVE)
 - Game UPX packed + server hash check → doc technique_upx_bypass.md
 - "frida-mcp", "frida mcp" → doc frida-mcp-usage skill, check frida-mcp-setup if issues
 
