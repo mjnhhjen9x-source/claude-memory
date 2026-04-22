@@ -16,6 +16,7 @@
 - [m4vn_server_ids.md](m4vn_server_ids.md) — M4VN server ID: Sub-1=0, Sub-2=1, Sub-19=4 (khong phai so UI)
 - [vttt_project.md](vttt_project.md) — VTTT (MU Vu Tru Than Thoai): bypass CMPlay AC OK (kill function patch), opcode capture in progress
 - [thanhlong_project.md](thanhlong_project.md) — ThanhLong (Unity IL2CPP MMO VN): scouted 9/10 green, HOLD — game testing phase
+- [rejected_games.md](rejected_games.md) — Games scouted & rejected (CABAL Mobile XIGNCODE3, JX1 blocked)
 
 ## Feedback & Rules
 - [bot_code_standards.md](bot_code_standards.md) — Kien truc 5 tang, state machine, logging, error handling
