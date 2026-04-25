@@ -19,6 +19,7 @@ Junction `D:\CodeTools\` → `D:\Code Tools\` — same content, no spaces. Prefe
 - **Ghidra 12.0.4 PUBLIC**: `D:\CodeTools\TOOLS\Ghidra\` (`support\analyzeHeadless.bat` for headless)
 - **jadx 1.5.5**: `D:\CodeTools\TOOLS\jadx\bin\jadx.bat` (CLI, on PATH)
 - **DIE 3.21**: `D:\CodeTools\TOOLS\DIE\` (`die.exe` GUI, `diec.exe` CLI, `diel.exe` lite)
+- **radare2 6.1.4**: `D:\CodeTools\TOOLS\radare2\bin\` (radare2, rabin2, rasm2, rax2, rafind2, etc — on PATH); `r2pipe` Python bindings installed
 - **Sysinternals Suite**: `D:\CodeTools\TOOLS\Sysinternals\` (strings, handle, pslist, sigcheck, procmon, procexp, etc — on PATH)
 - **apktool, BepInEx, Il2CppDumper, dnSpy, JPEXS_FFDec, uber-apk-signer, upx, frida-gadget, frida-mcp**: `D:\Code Tools\TOOLS\<name>\` (pre-existing)
 
@@ -39,6 +40,18 @@ Junction `D:\CodeTools\` → `D:\Code Tools\` — same content, no spaces. Prefe
 - **pycryptodome** 3.23 — crypto
 - **scapy** 2.7, **pyshark** 0.6 — packet manipulation/parsing
 - **requests** 2.33, **mcp** 1.27 (deps of ida-pro-mcp)
+
+### Skills installed (`C:\Users\ThanTai\.claude\skills\`)
+7 user skills restored from old backup, ready to use:
+- `apk-recon` — APK extract → engine detect → r2pipe analyze → game_map.json
+- `frida-memory-scan` — value scan flow (D64→F32→I32 priority, filter rounds, neighbor probe)
+- `frida-packet-reverse` — hook send/recv/recvfrom, BE/LE readers, cmd table, modify/inject
+- `pointer-chain-finder` — reverse pointer scan, build chain to module base, verify across restart
+- `ida-analysis` — IDA MCP workflow (decompile, xrefs, struct extraction)
+- `game-bot-builder` — end-to-end 5-phase workflow combining all skills above
+- `r2-static-analysis` — r2pipe cheatsheet + r2+frida combo workflow
+
+NOT installed (deliberately): `ida-mcp-setup` from old backup — references stale paths (Python 3.14, IDA 8.3, "Than Tai" account, mcp-plugin.py rename hack). Current setup correct via `reference_environment.md`.
 
 ### MCP servers (Claude Code)
 Both configured in `C:\Users\ThanTai\.claude.json` under `mcpServers`:
