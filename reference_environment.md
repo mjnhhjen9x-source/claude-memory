@@ -70,7 +70,7 @@ Both configured in `C:\Users\ThanTai\.claude.json` under `mcpServers`:
 
 **frida-mcp v0.1.0** (CUSTOM — user-built, repo: github.com/mjnhhjen9x-source/frida-mcp)
 - Local: `D:\Code Tools\TOOLS\frida-mcp\` (pip-installed editable: `pip install -e .`)
-- Designed for game RE workflow specifically (M4VN, MU FPT, VTTT, JX1, KHT, VNKU, MUHAOQUANG)
+- Designed for game RE workflow specifically (M4VN, MU FPT, VTTT, JX1, KHT, VNKU)
 - Spec: `D:\Code Tools\TOOLS\frida-mcp\docs\superpowers\specs\2026-04-21-frida-mcp-bridge-design.md`
 - 14 tools: list_devices, list_processes, spawn, attach, detach, resume, load_script, eval_js, rpc_call, read_memory (u32/u64/s32/s64/float/double/bytes/string/utf16), write_memory (same types), scan_pattern, run_recipe, snapshot
 - 11 built-in recipes: access_watchpoint, dump_module, filter_addrs, find_function_by_string, list_exports, probe_around, scan_double, scan_float, scan_int32_be, scan_int32_le, trace_calls

@@ -74,7 +74,6 @@
 - "ThanhLong", "Thanh Long" → đọc thanhlong_project.md (HOLD)
 - "CABAL", "CMSEA" → đọc cabal_mobile_project.md (ACTIVE)
 - "VTTT", "Vũ Trụ Thần Thoại" → đọc vttt_project.md
-- "MUHAOQUANG" → folder PC_GAMES/MUHAOQUANG_bypass/ (RECON.md + README.md)
 - Game Adobe AIR (libair.so + .swf) → đọc feedback_adobe_air_re_workflow.md
 - Game ARM + LDPlayer → đọc frida_gadget_approach.md
 - Game Unity IL2CPP → đọc bepinex_approach.md
