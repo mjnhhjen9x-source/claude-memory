@@ -85,8 +85,7 @@ Both configured in `C:\Users\ThanTai\.claude.json` under `mcpServers`:
 ### Environment variables (User scope, persistent)
 - `JAVA_HOME = D:\CodeTools\Java\jdk-21`
 - `GHIDRA_INSTALL_DIR = D:\CodeTools\TOOLS\Ghidra`
-- `SCOOP = D:\Code Tools\Scoop` (set but Scoop install was blocked by sandbox; folder empty — can ignore)
-- `PATH` additions: Python312, Python312\Scripts, Java\jdk-21\bin, NodeJS, TOOLS\jadx\bin, TOOLS\Sysinternals, TOOLS\DIE, TOOLS\Adb, Wireshark, Git\cmd
+- `PATH` additions: Python312, Python312\Scripts, Java\jdk-21\bin, NodeJS, TOOLS\jadx\bin, TOOLS\Sysinternals, TOOLS\DIE, TOOLS\Adb, TOOLS\radare2\bin, TOOLS\gh\bin, Wireshark, Git\cmd
 
 ### IDA ↔ Python binding
 Registry key set by `idapyswitch.exe --force-path`:
@@ -129,5 +128,4 @@ python -c "import pefile; pe=pefile.PE('game.exe'); print([s.Name for s in pe.se
 - **Cheat Engine** — memory hacking (GUI). Use `pymem` or Frida hooks.
 
 ## Installer cache
-`D:\Code Tools\_installers\` keeps all downloaded installers (~1 GB) in case need to reinstall:
-python-3.12.7, temurin-jdk17, temurin-jdk21, node-v24.15.0, ghidra_12.0.4, jadx-1.5.5, die-3.21-portable, SysinternalsSuite, Wireshark-4.6.4, npcap-1.87. Safe to delete to reclaim space.
+Removed 2026-04-26 (was at `D:\Code Tools\_installers\`, ~1.4 GB). All downloads deleted — re-download from official sources if reinstall needed.
