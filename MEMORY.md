@@ -62,6 +62,7 @@
 - [technique_game_update_offset_patch.md](technique_game_update_offset_patch.md) — Game update: regions dời khác nhau (game code/anti-cheat/data globals), scan bằng wildcard pattern cho imm32
 - [technique_socks5_antiproxy_bypass.md](technique_socks5_antiproxy_bypass.md) — Multi-layer IP ban + client anti-proxy: SOCKS5 tunnel + getpeername spoof
 - [technique_opengl_vram_optimize.md](technique_opengl_vram_optimize.md) — VRAM tối ưu game OpenGL: noop glTexImage2D + glDeleteTextures từ render thread (wglSwapBuffers)
+- [technique_win_restore_recovery.md](technique_win_restore_recovery.md) — Win System Restore rollback: PATH/env/VC++Redist/Npcap mất, files D:\ giữ. Recovery 5 phút
 
 ## Trigger Rules
 - "MU", "MU Xua" → đọc mu_xua_project.md
